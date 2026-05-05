@@ -1,0 +1,324 @@
+:root {
+    --wpms-primary: #0073aa;
+    --wpms-primary-dark: #005a87;
+    --wpms-primary-light: #e0f7fa;
+
+    --wpms-card-bg: #ffffff;
+    --wpms-card-border: #e0e0e0;
+    --wpms-card-shadow: rgba(0, 0, 0, 0.05);
+    --wpms-card-active-bg: #f0f8ff;
+
+    --wpms-text-primary: #333333;
+    --wpms-text-secondary: #666666;
+    --wpms-text-muted: #999999;
+
+    --wpms-danger: #dc3545;
+    --wpms-warning: #ffc107;
+    --wpms-success: #28a745;
+
+    --wpms-font-size-xs: 0.75rem;     /* 12px (در مرورگرهای پیش‌فرض 16px) */
+    --wpms-font-size-sm: 0.875rem;    /* 14px */
+    --wpms-font-size-base: 1rem;      /* 16px */
+    --wpms-font-size-md: 1.125rem;    /* 18px */
+    --wpms-font-size-lg: 1.25rem;     /* 20px */
+    --wpms-font-size-xl: 1.5rem;      /* 24px */
+    --wpms-font-size-2xl: 2rem;       /* 32px */
+    --wpms-font-size-3xl: 2.5rem;     /* 40px */
+}
+
+.task-box {
+    background-color: var(--wpms-card-active-bg);
+    padding: 5px 20px;
+    border-radius: 10px;
+    border: 1px solid var(--wpms-card-border);
+    position: relative;
+}
+.control-btn-area {
+    position: absolute;
+    left: 5px;
+    top: 5px;
+}
+/*.run-task {*/
+
+/*    display: inline-flex;*/
+/*    align-items: center;*/
+/*    justify-content: center;*/
+/*    gap: 8px;*/
+/*    padding: 8px 20px;*/
+/*    background: var(--wpms-primary, #0073aa);*/
+/*    color: var(--wpms-btn-text, #ffffff);*/
+/*    font-size: var(--wpms-font-size-base, 0.875rem);*/
+/*    font-weight: var(--wpms-font-weight-semibold, 500);*/
+/*    font-family: var(--wpms-font-family, sans-serif);*/
+/*    border: none;*/
+/*    border-radius: 40px;*/
+/*    cursor: pointer;*/
+/*    transition: all 0.2s ease;*/
+/*    text-decoration: none;*/
+/*    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);*/
+/*}*/
+/*.run-task:hover {*/
+/*    background: var(--wpms-primary-dark, #005a87);*/
+/*    transform: translateY(-1px);*/
+/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+/*}*/
+/* Container دکمه‌ها */
+.control-btn-area {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    flex-wrap: wrap; /* برای صفحه‌نمایش‌های کوچک */
+}
+
+/* استایل پایه برای هر دو دکمه */
+.control-btn-area button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 20px;
+    font-size: var(--wpms-font-size-base, 0.875rem);
+    font-weight: var(--wpms-font-weight-semibold, 500);
+    font-family: var(--wpms-font-family, sans-serif);
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background: var(--wpms-btn-bg, #0073aa);
+    color: var(--wpms-btn-text, #ffffff);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    line-height: 1.2;
+}
+
+/* استایل اختصاصی دکمه فعال (run-task) */
+.run-task {
+    background: var(--wpms-primary, #0073aa);
+    color: white;
+}
+.run-task:hover {
+    background: var(--wpms-primary-dark, #005a87);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.run-task:active {
+    transform: translateY(0);
+}
+.run-task:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 115, 170, 0.3);
+}
+
+/* استایل اختصاصی دکمه پایان (end-task) */
+.end-task {
+    background: var(--wpms-danger, #dc3545);
+    color: white;
+}
+.end-task:hover {
+    background: #b02a37;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.end-task:active {
+    transform: translateY(0);
+}
+.end-task:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.3);
+}
+
+/* حالت غیرفعال برای هر دو دکمه */
+.run-task:disabled,
+.end-task:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+.task-box__middle-row {
+    display: flex;
+    justify-content: stretch;
+    align-items: center;
+    gap: 30px;
+}
+.task-box__middle-row  .task-box__number-area {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--wpms-warning);
+    border-radius: 10px;
+}
+.task-box__number-area p  {
+    margin: 0;
+    color: var(--wpms-text-primary);
+    font-size: var(--wpms-font-size-xl);
+}
+.task-box__title-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 700px;
+}
+.task-box__title {
+    margin: 0;
+    padding: 0;
+    font-size: var(--wpms-font-size-3xl);
+    font-weight: 900;
+}
+.task-box__subtitle {
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+    font-size: var(--wpms-font-size-lg) !important;
+    font-weight: 200;
+}
+.task-box__time-area {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+.time-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--wpms-success);
+    color: var(--wpms-card-bg);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: var(--wpms-font-size-2xl);
+}
+
+.time-box__title {
+    font-size: var(--wpms-font-size-sm);
+    padding: 0;
+    margin: 0;
+}
+.time-box-sm {
+    font-size: var(--wpms-font-size-xl);
+    background-color: var(--wpms-primary);
+}
+.time-box-lg {
+    font-size: var(--wpms-font-size-3xl);
+}
+
+/* audio tag style  */
+
+.task-box__top-row {
+    margin: 15px 0;
+    padding: 8px 12px;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 56px;
+    transition: all 0.2s ease;
+}
+
+/* استایل خود تگ audio */
+.task-box__top-row {
+    margin: 10px 0;
+    padding: 4px 8px;
+    background: rgba(0, 0, 0, 0.02);
+    border-radius: 40px;
+    display: inline-block; /* فقط به اندازه محتوا عرض بگیرد */
+}
+.task-box__top-row audio {
+    width: 600px;          /* عرض ثابت کوچک */
+    height: 32px;          /* ارتفاع کمتر */
+    display: block;
+    border-radius: 30px;
+    outline: none;
+}
+
+/* تغییر رنگ کنترل‌های پلیر در مرورگرهای Webkit (Chrome, Edge, Safari) */
+.task-box__top-row audio::-webkit-media-controls-panel {
+    background-color: #f9f9fc;
+    border-radius: 40px;
+    padding: 0 12px;
+}
+
+.task-box__top-row audio::-webkit-media-controls-play-button {
+    background-color: var(--wpms-primary, #0073aa);
+    border-radius: 50%;
+    color: white;
+}
+
+.task-box__top-row audio::-webkit-media-controls-play-button:hover {
+    background-color: var(--wpms-primary-dark, #005a87);
+}
+
+.task-box__top-row audio::-webkit-media-controls-current-time-display,
+.task-box__top-row audio::-webkit-media-controls-time-remaining-display {
+    font-family: var(--wpms-font-family-mono, monospace);
+    font-size: var(--wpms-font-size-sm, 0.875rem);
+    color: var(--wpms-text-primary, #333);
+}
+
+.task-box__top-row audio::-webkit-media-controls-timeline {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 4px;
+}
+
+.task-box__top-row audio::-webkit-media-controls-volume-slider {
+    background-color: #e0e0e0;
+    border-radius: 10px;
+}
+
+/* حالت hover روی کانتینر */
+.task-box__top-row:hover {
+    background: rgba(0, 115, 170, 0.05);
+    transform: scale(1.01);
+}
+
+
+.wpms-read-more-container {
+    margin: 15px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.wpms-read-more-content {
+    max-height: 30px;      /* ارتفاع بسته */
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+    position: relative;
+    line-height: 1.5;
+}
+
+/* وقتی کلاس expanded به محتوا اضافه شود */
+.wpms-read-more-content.expanded {
+    max-height: 2000px;    /* عددی بزرگتر از حداکثر محتوای ممکن */
+    transition: max-height 0.6s ease-in;
+}
+
+/* اضافه کردن گرادینت محو برای حالت بسته (اختیاری، زیباتر) */
+.wpms-read-more-content:not(.expanded)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1));
+    pointer-events: none;
+}
+
+.wpms-toggle-btn {
+    background: var(--wpms-text-primary, #0073aa);
+    color: white;
+    border: none;
+    padding: 6px 15px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 0.875rem;
+    margin-top: 8px;
+    transition: background 0.2s;
+}
+
+.wpms-toggle-btn:hover {
+    background: var(--wpms-card-bg, #005a87);
+    color: var(--wpms-text-primary, #0073aa);;
+}

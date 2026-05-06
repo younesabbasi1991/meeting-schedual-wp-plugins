@@ -56,6 +56,10 @@ document.querySelectorAll('.wpms-read-more-container').forEach(container => {
         const id = displayElement.id;
         if (timersData[id] && timersData[id].intervalId) {
             clearInterval(timersData[id].intervalId);
+            const box = displayElement.closest('.task-box');
+            if (box) {
+                box.classList.remove('active-pulse');
+            }
             timersData[id].isRunning = false;
             timersData[id].intervalId = null;
         }
@@ -97,6 +101,17 @@ document.querySelectorAll('.wpms-read-more-container').forEach(container => {
     // شروع تایمر (با قابلیت شروع از روی مقدار باقیمانده)
     function startTimer(displayElement, totalSeconds, runButton) {
         const id = displayElement.id;
+        const taskBox = displayElement.closest('.task-box');
+        if (taskBox) {
+            // حذف کلاس از همه task-box ها
+            document.querySelectorAll('.task-box').forEach(box => {
+                box.classList.remove('active-pulse');
+            });
+            // اضافه کردن به تسک جاری
+            taskBox.classList.add('active-pulse');
+        }
+
+
         // اگر تسک پایان یافته است، اجازه شروع نده
         if (timersData[id] && timersData[id].isEnded) return;
 
@@ -140,6 +155,10 @@ document.querySelectorAll('.wpms-read-more-container').forEach(container => {
     // پایان کامل تسک (فریز و غیرفعال کردن دکمه‌ها)
     function endTask(displayElement, runButton, endButton) {
         const id = displayElement.id;
+        const box = displayElement.closest('.task-box');
+        if (box) {
+            box.classList.remove('active-pulse');
+        }
         // توقف تایمر اگر در حال اجراست
         if (timersData[id] && timersData[id].intervalId) {
             clearInterval(timersData[id].intervalId);

@@ -58,15 +58,17 @@ function wpms_frontend_tasks_list()
     $status = $task->task_status; // pending, in_progress, done
     ?>
     <div class="task-box">
+
         <div class="control-btn-area">
             <button class="run-task" data-task-id="<?php echo $task->id; ?>">فعال</button>
             <button class="end-task" data-task-id="<?php echo $task->id; ?>">پایان</button>
         </div>
+        <?php if (!empty($task->audio_url)): ?>
+            <div class="task-box__top-row">
+                <audio controls src="<?php echo esc_url($task->audio_url); ?>"></audio>
+            </div>
+        <?php endif; ?>
 
-        <div class="task-box__top-row">
-            <audio controls src="<?php echo  esc_url($task->audio_url) ?>"></audio>
-
-        </div>
         <div class="task-box__middle-row">
             <div class="task-box__number-area">
                 <p><?php echo $task->task_order ?></p>
@@ -89,7 +91,7 @@ function wpms_frontend_tasks_list()
 <!--                    <span>10:00</span>-->
 <!--                </div>-->
                 <div class="task-box__duration-time time-box time-box-lg">
-                    <span class="time-box__title">مدت ارائه</span>
+<!--                    <span class="time-box__title">مدت ارائه</span>-->
                     <span class="task-timer-display" data-seconds="<?php echo intval($task->presentation_time) * 60; ?>">
         <?php echo wpms_format_duration($task->presentation_time); ?>
     </span>

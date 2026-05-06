@@ -30,13 +30,18 @@
     background-color: var(--wpms-card-active-bg);
     padding: 5px 20px;
     border-radius: 10px;
-    border: 1px solid var(--wpms-card-border);
+    /*border: 1px solid var(--wpms-card-border);*/
     position: relative;
+    margin-bottom: 60px !important;
 }
 .control-btn-area {
     position: absolute;
-    left: 5px;
-    top: 5px;
+    left: 25px;
+    top: -43px;
+    margin: 0 !important;
+    background-color: var(--wpms-card-active-bg);
+    padding: 5px 10px 2px 10px;
+    border-radius: 5px 5px 0 0 ;
 }
 /*.run-task {*/
 
@@ -184,7 +189,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: var(--wpms-success);
     color: var(--wpms-card-bg);
     padding: 10px;
     border-radius: 5px;
@@ -197,11 +201,16 @@
     margin: 0;
 }
 .time-box-sm {
+    width: 70px;
     font-size: var(--wpms-font-size-xl);
-    background-color: var(--wpms-primary);
+    border:1px solid var(--wpms-primary);
+    color: var(--wpms-text-primary);
+    /*background-color: var(--wpms-primary);*/
 }
 .time-box-lg {
+    width: 200px;
     font-size: var(--wpms-font-size-3xl);
+    background-color: var(--wpms-text-primary);
 }
 
 /* audio tag style  */
@@ -282,15 +291,16 @@
 
 .wpms-read-more-content {
     max-height: 30px;      /* ارتفاع بسته */
-    overflow: hidden;
+    overflow-y:scroll ;
     transition: max-height 0.4s ease-out;
     position: relative;
-    line-height: 1.5;
-}
+    line-height: 2;
+    text-align: justify;
+    padding-left: 10px}
 
 /* وقتی کلاس expanded به محتوا اضافه شود */
 .wpms-read-more-content.expanded {
-    max-height: 2000px;    /* عددی بزرگتر از حداکثر محتوای ممکن */
+    max-height: 500px;    /* عددی بزرگتر از حداکثر محتوای ممکن */
     transition: max-height 0.6s ease-in;
 }
 
@@ -321,4 +331,28 @@
 .wpms-toggle-btn:hover {
     background: var(--wpms-card-bg, #005a87);
     color: var(--wpms-text-primary, #0073aa);;
+}
+
+/*  ANIMATION FOR BOXES  */
+/* انیمیشن ضربان قلب همراه با نور */
+@keyframes heartbeat-glow {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 115, 170, 0.3);
+    }
+    50% {
+        transform: scale(1.01);
+        box-shadow: 0 0 0 12px rgba(0, 115, 170, 0.1);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(0, 115, 170, 0);
+    }
+}
+
+.task-box.active-pulse {
+    animation: heartbeat-glow 1.5s ease-in-out infinite;
+    transition: all 0.2s ease;
+    border-radius: 12px;
+    background-color: var(--wpms-card-active-bg);
 }

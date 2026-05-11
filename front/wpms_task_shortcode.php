@@ -4,7 +4,6 @@ add_shortcode('wpms_tasks_list', 'wpms_frontend_tasks_list');
 function wpms_frontend_tasks_list()
 {
 
-
     global $wpdb;
     $table_name = $wpdb->prefix . 'meeting_scheduler';
 
@@ -86,13 +85,14 @@ function wpms_frontend_tasks_list()
                     <span class="time-box__title">زمان پایان</span>
                     <span><?php echo $end_str ?></span>
                 </div>
-<!--                <div class="task-box__duration-time time-box time-box-lg">-->
-<!--                    <span class="time-box__title">مدت ارائه</span>-->
-<!--                    <span>10:00</span>-->
-<!--                </div>-->
+                <!--                <div class="task-box__duration-time time-box time-box-lg">-->
+                <!--                    <span class="time-box__title">مدت ارائه</span>-->
+                <!--                    <span>10:00</span>-->
+                <!--                </div>-->
                 <div class="task-box__duration-time time-box time-box-lg">
-<!--                    <span class="time-box__title">مدت ارائه</span>-->
-                    <span class="task-timer-display" data-seconds="<?php echo intval($task->presentation_time) * 60; ?>">
+                    <!--                    <span class="time-box__title">مدت ارائه</span>-->
+                    <span class="task-timer-display"
+                          data-seconds="<?php echo intval($task->presentation_time) * 60; ?>">
         <?php echo wpms_format_duration($task->presentation_time); ?>
     </span>
                 </div>
@@ -106,7 +106,8 @@ function wpms_frontend_tasks_list()
         </div>
 
     </div>
-    <?php endforeach; ?>
+<?php endforeach; ?>
+
     <?php
 
     return ob_get_clean();

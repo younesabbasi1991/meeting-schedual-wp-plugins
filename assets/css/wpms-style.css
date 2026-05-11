@@ -27,7 +27,8 @@
 }
 
 .task-box {
-    background-color: var(--wpms-card-active-bg);
+    /*background-color: var(--wpms-card-active-bg);*/
+    background-color: #E0F2E0;
     padding: 5px 20px;
     border-radius: 10px;
     /*border: 1px solid var(--wpms-card-border);*/
